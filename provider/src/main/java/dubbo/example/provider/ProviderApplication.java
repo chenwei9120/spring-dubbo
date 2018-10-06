@@ -1,18 +1,19 @@
 package dubbo.example.provider;
 
+import dubbo.example.provider.util.SpringManager;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ImportResource;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @ImportResource("classpath:transaction.xml")
 @MapperScan("dao")
 @SpringBootApplication(scanBasePackages = {"dubbo.example.provider.service.impl"} )
 //@EnableTransactionManagement
-public class ProviderApplication {
+public class ProviderApplication implements CommandLineRunner {
 
     public static void main(String[] args) {
         ApplicationContext context = new SpringApplicationBuilder()
@@ -21,5 +22,10 @@ public class ProviderApplication {
                 .run(args);
         SpringManager.setApplicationContext(context);
         Object obj = SpringManager.getBean("dataSource");
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        System.out.println("程序启动完成.");
     }
 }

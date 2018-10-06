@@ -1,8 +1,9 @@
-package dubbo.example.provider;
+package dubbo.demo.consumer.util;
 
 import org.springframework.context.ApplicationContext;
 
 public class SpringManager {
+
     private static ApplicationContext applicationContext = null;
 
     public static void setApplicationContext(ApplicationContext applicationContext) {

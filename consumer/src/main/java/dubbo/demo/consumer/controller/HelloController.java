@@ -2,7 +2,7 @@ package dubbo.demo.consumer.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import dao.SalaryMapper;
-import dubbo.demo.consumer.SpringManager;
+import dubbo.demo.consumer.util.SpringManager;
 import dubbo.example.api.service.HelloService;
 import model.Salary;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class HelloController {
 
     @RequestMapping("/sayHello")
     public String sayHello(@RequestParam String name) {
-        HelloService helloService = SpringManager.getBean("helloService", HelloService.class);
+        //HelloService helloService = SpringManager.getBean("helloService", HelloService.class);
         return helloService.sayHello(name);
     }
 
