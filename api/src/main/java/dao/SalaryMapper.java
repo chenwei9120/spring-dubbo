@@ -2,11 +2,10 @@ package dao;
 
 import model.Salary;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
+import util.MyMapper;
+//import org.apache.ibatis.annotations.Mapper;
 
-//@Mapper
-public interface SalaryMapper {
-
-    Salary selectByPrimaryKey(@Param("id") Long id, @Param("ss") double salary);
+@Mapper
+public interface SalaryMapper extends MyMapper<Salary> {
 
 }

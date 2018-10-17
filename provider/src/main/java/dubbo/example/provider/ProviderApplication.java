@@ -1,13 +1,14 @@
 package dubbo.example.provider;
 
 import dubbo.example.provider.util.SpringManager;
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ImportResource;
+//import org.mybatis.spring.annotation.MapperScan;
+import tk.mybatis.spring.annotation.MapperScan;
 
 @ImportResource("classpath:transaction.xml")
 @MapperScan("dao")

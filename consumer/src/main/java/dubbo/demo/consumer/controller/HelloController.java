@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class HelloController {
 
@@ -32,9 +34,15 @@ public class HelloController {
 
     @GetMapping("/getSalary")
     public Salary getSalaryById(@RequestParam Long id) {
-        //salaryMapper.selectByPrimaryKey(1L, 3000d);
+        //HelloService helloService = SpringManager.getBean("helloService", HelloService.class);
         Salary salary = helloService.getSalary(id);
         return salary;
+    }
+
+    @GetMapping("/getAll")
+    public List<Salary> getAll() {
+        List<Salary> listSalary = helloService.getAll();
+        return listSalary;
     }
 
     @RequestMapping("/")
@@ -51,9 +59,4 @@ public class HelloController {
 //            application = "${dubbo.application.id}",
 //            url = "dubbo://localhost:12345")
 //    private DemoService demoService;
-//
-//
-//
-//
-//
 //}

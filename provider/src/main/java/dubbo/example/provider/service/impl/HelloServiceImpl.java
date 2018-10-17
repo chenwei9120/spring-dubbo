@@ -6,6 +6,8 @@ import dubbo.example.api.service.HelloService;
 import model.Salary;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 @Service(
         version = "${demo.service.version}",
         application = "${dubbo.application.id}",
@@ -28,13 +30,15 @@ public class HelloServiceImpl implements HelloService {
     @Override
     public Salary getSalary(Long id) {
         try {
-            Salary salary = salaryMapper.selectByPrimaryKey(id, 30000.00);
-            return salary;
+            return salaryMapper.selectByPrimaryKey(id);
         } catch (Exception ex) {
             ex.printStackTrace();
             return null;
         }
     }
 
-
+    @Override
+    public List<Salary> getAll() {
+        return salaryMapper.selectAll();
+    }
 }
