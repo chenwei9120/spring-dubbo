@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-1.4.1.js"></script>
+    <script type="text/javascript">
+        $(
+            function () {
+                $("#btnCallServicePost").bind("click", function () {
+                    $.ajax({
+                        type: "post",
+                        url: "/createOrder?name=Way",
+                        data: '{ "id": "1001", "name": "china" }',
+                        contentType: "application/json",
+                        dataType: "text",
+                        success: function (data) {
+                            alert(data);
+                        },
+                        error: function (e) {
+                            alert(e.toLocaleString());
+                        }
+                    });
+                });
+            });
+    </script>
+</head>
+<body>
+<input type="button" value="test" id="btnCallServicePost"/>
+</body>
+</html>

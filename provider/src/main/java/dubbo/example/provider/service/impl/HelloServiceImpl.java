@@ -41,4 +41,6 @@ public class HelloServiceImpl implements HelloService {
     public List<Salary> getAll() {
         return salaryMapper.selectAll();
     }
+
+
 }
